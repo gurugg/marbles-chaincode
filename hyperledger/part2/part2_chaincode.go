@@ -335,6 +335,12 @@ func (t *SimpleChaincode) set_user(stub *shim.ChaincodeStub, args []string) ([]b
 	
 	fmt.Println("- start set user")
 	fmt.Println(args[0] + " - " + args[1])
+	
+	if len(args[1]) <= 3 {
+		return nil, errors.New("Name must be at least 3 chars")
+	}
+	
+	
 	marbleAsBytes, err := stub.GetState(args[0])
 	if err != nil {
 		return nil, errors.New("Failed to get thing")

@@ -336,7 +336,7 @@ func (t *SimpleChaincode) set_user(stub *shim.ChaincodeStub, args []string) ([]b
 	fmt.Println("- start set user")
 	fmt.Println(args[0] + " - " + args[1])
 	
-	if len(args[1]) <= 3 {
+	if len(args[1]) <= 4 {
 		return nil, errors.New("Name must be at least 3 chars")
 	}
 	
